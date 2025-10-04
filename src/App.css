@@ -152,7 +152,7 @@ a:hover::after {
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 10px;
+    padding: 20px;
   }
   .start-content h1 {
     font-size: 1.6rem;
