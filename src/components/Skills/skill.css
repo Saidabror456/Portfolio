@@ -1,0 +1,94 @@
+.skills-section {
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #0d0d0d);
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.skills-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00e6e6;
+  text-shadow: 0 0 15px rgba(0, 230, 230, 0.8);
+}
+
+.skills-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.skill {
+  text-align: left;
+}
+
+.skill span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #ffcc00;
+}
+
+.progress-bar {
+  background: #2a2a2a;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 16px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #00e6e6, #00b3b3, #008080);
+  border-radius: 50px;
+  transition: width 1.5s ease;
+  box-shadow: 0 0 15px rgba(0,230,230,0.7);
+  position: relative;
+}
+
+/* Проценты */
+.progress-bar div::after {
+  content: attr(style);
+  position: absolute;
+  right: 10px;
+  top: -28px;
+  font-size: 0.9rem;
+  color: #00e6e6;
+  text-shadow: 0 0 5px rgba(0,230,230,0.9);
+}
+
+/* Анимация появления */
+.skill {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.skill:nth-child(1) { animation-delay: 0.2s; }
+.skill:nth-child(2) { animation-delay: 0.4s; }
+.skill:nth-child(3) { animation-delay: 0.6s; }
+.skill:nth-child(4) { animation-delay: 0.8s; }
+.skill:nth-child(5) { animation-delay: 1s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .skills-section h2 {
+    font-size: 2rem;
+  }
+  .skill span {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,45 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-svg {
+  width: 70px;
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-svg:hover {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.7));
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 6px #38bdf8) drop-shadow(0 0 12px #6366f1);
+  }
+  100% {
+    filter: drop-shadow(0 0 14px #a855f7) drop-shadow(0 0 28px #38bdf8);
+  }
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100px;
+  }
+  100% {
+    background-position: 200px;
+  }
+}

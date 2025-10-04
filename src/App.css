@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* Базовый стиль (Desktop first, ширина >1200px) */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f2027;
+  color: #fff;
+  overflow-x: hidden;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🔹 Анимации */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes neonGlow {
+  0%, 100% { text-shadow: 0 0 5px #00ffe5, 0 0 10px #00ffe5, 0 0 20px #00ffe5; }
+  50% { text-shadow: 0 0 10px #00ffe5, 0 0 20px #00ffe5, 0 0 40px #00ffe5; }
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Эффекты для текста */
+h1, h2, h3 {
+  animation: floatUp 1.2s ease forwards;
+}
+.section-title {
+  animation: neonGlow 2s infinite alternate;
+}
+
+/* 🔹 Кнопки */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffe5, #0077ff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,255,229,0.5);
+  animation: fadeIn 1.8s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffe5, 0 0 30px #0077ff;
+}
+
+/* 🔹 Hover для ссылок */
+a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #00ffe5;
+  transition: width 0.3s ease;
+}
+a:hover {
+  color: #00ffe5;
+}
+a:hover::after {
+  width: 100%;
+}
+
+/* 🔹 Большие экраны (4K) */
+@media (min-width: 1600px) {
+  .section-title {
+    font-size: 3.5rem;
+  }
+  .start-section h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1366px) {
+  .start-content h1 {
+    font-size: 2.5rem;
+  }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  .navbar .logo {
+    transform: translate(30px);
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .skills-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .start-content h1 {
+    font-size: 2rem;
+  }
+  .start-content .subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+  .footer h3 {
+    font-size: 1.2rem;
+  }
+  .footer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+  .start-content h1 {
+    font-size: 1.6rem;
+  }
+  .btn {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+  }
+  .project-card {
+    padding: 15px;
+  }
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
