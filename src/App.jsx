@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/navbar";
 import Start from "./components/Start/start";
 import About from "./components/About/about";
 import Projects from "./components/Projects/project";
-import Contacts from "./components/Contacts/Contacts";
+import Contacts from "./components/Contacts/contacts";
 import Skills from "./components/Skills/Skills";
 import Timeline from "./components/Timeline/Timeline";
 import Footer from "./components/Footer/footer";
