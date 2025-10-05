@@ -217,6 +217,9 @@
     .navbar ul li{
       list-style: none;
     }
+    .navbar .navbar-right{
+      transform: translate(150px,-30px);
+    }
 }
 
 /* Extra small <480px */
@@ -225,18 +228,15 @@
   .mobile-nav .nav-link { font-size: 15px; }
   .mobile-langs button { font-size: 13px; padding: 8px; }
     .brand-mobile{}
-      .navbar {
-        font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
   .navbar ul {
     display: flex;
   }
   .navbar ul li{
     list-style: none;
+  }
+  .nav-center{
+    transform: translate(-40px);
+    font-size: 13px;
   }
 }
 .logo {
