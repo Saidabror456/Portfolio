@@ -2,23 +2,27 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/logo";
+
 import "./navbar.css";
+import Skills from "../Skills/Skills";
+import Timeline from "../Timeline/Timeline";
+import About from "../About/about";
+import Contacts from "../Contacts/contacts";
+import Start from "../Start/start";
+import Projects from "../Projects/project";
+import Hello from "../Hello/hello";
 function Navbar() {
   const { t, i18n } = useTranslation();
   const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState("uz");
+  const [activeLang, setActiveLang] = useState("en");
   const langRef = useRef(null);
   const mobileRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (langRef.current && !langRef.current.contains(e.target)) {
-        setLangOpen(false);
-      }
-      if (mobileRef.current && !mobileRef.current.contains(e.target)) {
-        setMobileOpen(false);
-      }
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (mobileRef.current && !mobileRef.current.contains(e.target)) setMobileOpen(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -35,138 +39,74 @@ function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const changeLang = (lng) => {
-    i18n.changeLanguage(lng);
-    setActiveLang(lng);
-    setLangOpen(false);
-  };
-
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
   }, [mobileOpen]);
 
+  const changeLang = (lng) => {
+    i18n.changeLanguage(lng);
+    setActiveLang(lng);
+    setLangOpen(false);
+    setMobileOpen(false);
+  };
+
+  const navLinks = [
+    { path: "/start", label: t("home") },
+    { path: "/about", label: t("about") },
+    { path: "/projects", label: t("projects") },
+    { path: "/contacts", label: t("contacts") },
+  ];
+
   return (
     <>
-      {/* === DESKTOP NAVBAR === */}
+
+      {/* Desktop Navbar */}
       <header className="navbar" role="navigation" aria-label="Main Navigation">
         <div className="navbar-left">
-          <button
-            className="burger"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((s) => !s)}
-          >
-            <span className={`bar bar1 ${mobileOpen ? "active" : ""}`}></span>
-          </button>
-
-          <NavLink to="/" className="brand" aria-label="Homepage">
-            <Logo />
-            <div className="brand-text">
-              <span className="brand-title">MyPortfolio</span>
-              <span className="brand-sub">Frontend Developer</span>
-            </div>
-          </NavLink>
         </div>
 
+<div className="logo">
+<h1 class="logo">Saidabror<span>'s</span> Portfolio</h1>
+
+</div>
         <nav className="nav-center">
           <ul className="nav-links">
-            <li>
-              <NavLink to="/start" className="nav-link">{t("home")}</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" className="nav-link">{t("about")}</NavLink>
-            </li>
-            <li>
-              <NavLink to="/projects" className="nav-link">{t("projects")}</NavLink>
-            </li>
-            <li>
-              <NavLink to="/contacts" className="nav-link">{t("contacts")}</NavLink>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink
+                  to={link.path}
+                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div className="navbar-right" ref={langRef}>
-          <div
-            className="dropdown"
-            aria-haspopup="true"
-            aria-expanded={langOpen}
-          >
+          <div className="dropdown" aria-haspopup="true" aria-expanded={langOpen}>
             <button
               className="dropdown-header"
               onClick={() => setLangOpen((s) => !s)}
               aria-label="Select language"
             >
-              <span className="flag small-flag">
-                {activeLang === "ru"}
-                {activeLang === "en"}
-                {activeLang === "uz"}
-              </span>
               <span className="lang-code">{activeLang.toUpperCase()}</span>
               <span className={`arrow ${langOpen ? "open" : ""}`} aria-hidden>
                 ▾
               </span>
             </button>
-
             {langOpen && (
               <ul className="dropdown-list" role="menu" aria-label="Languages">
-                <li>
-                  <button onClick={() => changeLang("ru")}> Русский</button>
-                </li>
-                <li>
-                  <button onClick={() => changeLang("en")}> English</button>
-                </li>
-                <li>
-                  <button onClick={() => changeLang("uz")}> O‘zbek</button>
-                </li>
+                <li><button onClick={() => changeLang("ru")}>Русский</button></li>
+                <li><button onClick={() => changeLang("en")}>English</button></li>
+                <li><button onClick={() => changeLang("uz")}>O‘zbek</button></li>
               </ul>
             )}
           </div>
         </div>
       </header>
-
-      
-<aside
-  ref={mobileRef}
-  className={`mobile-menu ${mobileOpen ? "open" : ""}`}
-  inert={!mobileOpen}
-  role="dialog"
-  aria-label="Mobile Menu"
->
-
-
-
-        <div className="mobile-inner">
-          <div className="mobile-top">
-            <NavLink to="/" className="brand-mobile" onClick={() => setMobileOpen(false)}>
-              <Logo />
-            </NavLink>
-            <button
-              className="mobile-close"
-              aria-label="Close menu"
-              onClick={() => setMobileOpen(false)}
-            >
-              ✕
-            </button>
-          </div>
-
-          <nav className="mobile-nav">
-            <NavLink to="/start" onClick={() => setMobileOpen(false)}>{t("home")}</NavLink>
-            <NavLink to="/about" onClick={() => setMobileOpen(false)}>{t("about")}</NavLink>
-            <NavLink to="/projects" onClick={() => setMobileOpen(false)}>{t("projects")}</NavLink>
-            <NavLink to="/contacts" onClick={() => setMobileOpen(false)}>{t("contacts")}</NavLink>
-          </nav>
-
-          <div className="mobile-langs">
-            <button onClick={() => { changeLang("ru"); setMobileOpen(false); }}> Рус</button>
-            <button onClick={() => { changeLang("en"); setMobileOpen(false); }}> Eng</button>
-            <button onClick={() => { changeLang("uz"); setMobileOpen(false); }}> Uz</button>
-          </div>
-
-          <div className="mobile-footer">
-            <small>© {new Date().getFullYear()} — MyPortfolio</small>
-          </div>
-        </div>
-      </aside>
+      <Hello/>
     </>
   );
 }

@@ -8,6 +8,7 @@ import Skills from "./components/Skills/Skills";
 import Timeline from "./components/Timeline/Timeline";
 import Footer from "./components/Footer/footer";
 import './App.css'
+import Hello from "./components/Hello/hello";
 function App() {
   return (
     <>

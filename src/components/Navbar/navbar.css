@@ -1,4 +1,8 @@
-/* === MAIN NAVBAR === */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -6,12 +10,15 @@
   width: 100%;
   height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: #111;
-  color: #fff;
+  gap: 50px;
   padding: 0 2rem;
+  background-color: #111;
+  color: #fff;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  font-family: 'Poppins', sans-serif;
 }
 
 .brand {
@@ -21,53 +28,56 @@
   text-decoration: none;
   color: inherit;
 }
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-.brand-title { font-weight: bold; font-size: 18px; }
+.brand-text { display: flex; flex-direction: column; }
+.brand-title { font-weight: 600; font-size: 20px; }
 .brand-sub { font-size: 12px; opacity: 0.7; }
-
-/* === NAV LINKS === */
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
+.nav-center{
+  transform: translate(-100px);
 }
+/* =======================
+   NAV LINKS
+======================= */
+.nav-center { display: flex; align-items: center; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
 .nav-link {
   color: #bbb;
   text-decoration: none;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 .nav-link:hover,
 .nav-link.active {
-  color: #fff;
-  border-bottom: 2px solid #fff;
+  color: #00bcd4;
+  border-bottom: 2px solid #00bcd4;
   padding-bottom: 2px;
 }
 
-/* === BURGER === */
+/* =======================
+   BURGER MENU
+======================= */
 .burger {
-  display: none;
+  
   flex-direction: column;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1100;
 }
 .bar {
   width: 25px;
   height: 3px;
   background: #fff;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
+.bar1.active { transform: rotate(45deg) translate(5px,5px); }
+.bar2.active { opacity: 0; }
+.bar3.active { transform: rotate(-45deg) translate(5px,-5px); }
 
-/* === LANGUAGE DROPDOWN === */
-.dropdown {
-  position: relative;
-}
+/* =======================
+   LANGUAGE DROPDOWN
+======================= */
+.dropdown { position: relative; }
 .dropdown-header {
   display: flex;
   align-items: center;
@@ -76,11 +86,10 @@
   border: none;
   color: #fff;
   cursor: pointer;
+  font-weight: 500;
 }
-.flag { font-size: 18px; }
 .arrow { transition: transform 0.3s; }
 .arrow.open { transform: rotate(180deg); }
-
 .dropdown-list {
   position: absolute;
   top: 120%;
@@ -88,60 +97,72 @@
   background: #222;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 .dropdown-list button {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  padding: 10px 15px;
   width: 100%;
   background: none;
   border: none;
   color: #fff;
   text-align: left;
   cursor: pointer;
+  transition: all 0.2s;
 }
-.dropdown-list button:hover { background: #333; }
+.dropdown-list button:hover { background: #00bcd4; color: #111; }
 
-/* === MOBILE MENU === */
+/* =======================
+   MOBILE MENU
+======================= */
+.mobile-overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 900;
+}
+.mobile-overlay.open { opacity: 1; visibility: visible; }
+
 .mobile-menu {
   position: fixed;
-  top: 0;
-  left: -100%;
-  width: 80%;
-  height: 100%;
-  background: #111;
+  top: 0; right: -100%;
+  width: 80%; height: 100%;
+  background-color: #111;
   color: #fff;
-  transition: left 0.3s ease;
-  z-index: 2000;
-}
-.mobile-menu.open { left: 0; }
-
-.mobile-inner {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  padding: 2rem 1.5rem;
+  transition: right 0.3s ease;
+  z-index: 1000;
 }
-.mobile-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.mobile-menu.open { right: 0; }
+
+.mobile-top { display: flex; justify-content: space-between; align-items: center; }
+.mobile-close {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
+.mobile-close:hover { transform: rotate(90deg); }
+
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
-.mobile-nav a {
+.mobile-nav .nav-link {
+  font-size: 18px;
   color: #bbb;
   text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
-.mobile-nav a:hover { color: #fff; }
+.mobile-nav .nav-link:hover, .mobile-nav .nav-link.active { color: #00bcd4; }
 
 .mobile-langs {
   margin-top: auto;
@@ -150,14 +171,15 @@
 }
 .mobile-langs button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   background: #222;
   border: none;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
 }
-.mobile-langs button:hover { background: #333; }
+.mobile-langs button:hover { background: #00bcd4; color: #111; }
+
 .mobile-footer {
   text-align: center;
   margin-top: 1rem;
@@ -165,38 +187,103 @@
   opacity: 0.6;
 }
 
-/* === RESPONSIVE BREAKPOINTS === */
+/* =======================
+   MEDIA QUERIES
+======================= */
 
-/* --- Большие мониторы (от 1440px) --- */
-@media (min-width: 1440px) {
-  .navbar { padding: 0 4rem; }
-  .nav-links { gap: 3rem; }
-  .nav-link { font-size: 18px; }
-  .brand-title { font-size: 22px; }
-}
-
-/* --- Ноутбуки (до 1024px) --- */
-@media (max-width: 1024px) {
-  .nav-links { gap: 1rem; }
-  .nav-link { font-size: 15px; }
-  .brand-sub { display: none; }
-}
-
-/* --- Планшеты (до 768px) --- */
-@media (max-width: 768px) {
-  .nav-center { display: none; }
+/* Tablets 768px–1024px */
+@media(max-width:1024px) and (min-width:768px) {
+  .nav-center {  }
   .burger { display: flex; }
-  .navbar { padding: 0 1.5rem; }
-  .brand-title { font-size: 16px; }
+  .brand-title { font-size: 18px; }
   .brand-sub { font-size: 10px; }
-  .dropdown-header { font-size: 14px; }
 }
 
-/* --- Маленькие телефоны (до 480px) --- */
-@media (max-width: 480px) {
-  .navbar { height: 60px; padding: 0 1rem; }
-  .brand-text { display: none; } /* убираем текст, оставляем лого */
+/* Mobile <768px */
+@media(max-width:768px) {
+  .brand-text {  }
+  .burger { display: flex; }
   .burger .bar { width: 20px; }
-  .mobile-nav a { font-size: 16px; }
-  .mobile-langs button { font-size: 14px; padding: 8px; }
+  .navbar { padding: 0 1rem; height: 60px; }
+  .mobile-nav .nav-link { font-size: 16px;}
+  .mobile-langs button { font-size: 14px; padding: 10px; }
+    .brand-mobile{}
+    .navbar{
+      display: flex;
+    }
+    .navbar ul{
+      display: flex;
+    }
+    .navbar ul li{
+      list-style: none;
+    }
+}
+
+/* Extra small <480px */
+@media(max-width:480px) {
+  .mobile-menu { width: 100%; padding: 2rem 1rem; }
+  .mobile-nav .nav-link { font-size: 15px; }
+  .mobile-langs button { font-size: 13px; padding: 8px; }
+    .brand-mobile{}
+      .navbar {
+        font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .navbar ul {
+    display: flex;
+  }
+  .navbar ul li{
+    list-style: none;
+  }
+}
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #00fff2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  user-select: none;
+  animation: glow 2s infinite alternate;
+  transform: translate(-100px);
+}
+
+.logo span {
+  color: #ff007a;
+  font-weight: 700;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00fff2, 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 40px #00fff2;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff007a, 0 0 20px #ff007a, 0 0 30px #ff007a, 0 0 60px #ff007a;
+  }
+}
+
+/* Для адаптива */
+@media (max-width: 768px) {
+  .logo {
+  display: none;
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+  display: none;
+  }
+}
+
+.navbar .navbar-right{
+  /* transform: translate(150px); */
+}
+@media (max-width:480px){
+  .navbar-right{
+    transform: translate(100px,-30px);
+  }
 }

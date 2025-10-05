@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./skill.css";
+import Timeline from "../Timeline/Timeline";
 function Skills() {
      const { t, i18n } = useTranslation();
   
@@ -10,13 +11,15 @@ function Skills() {
     };
   const skills = [
     { name: "HTML", level: "90%" },
-    { name: "CSS", level: "90%" },
-    { name: "JavaScript", level: "75%" },
+    { name: "CSS", level: "96%" },
+    { name: "JavaScript", level: "92%" },
     { name: "React", level: "90%" },
     { name: "GitHub", level: "35%" },
+    {name:"Node.js", level:"89%"}
   ];
 
   return (
+    <>
     <section id="skills" className="skills-section">
       <h2>{t('skill')}</h2>
       <div className="skills-container">
@@ -30,6 +33,7 @@ function Skills() {
         ))}
       </div>
     </section>
+    </>
   );
 }
 
