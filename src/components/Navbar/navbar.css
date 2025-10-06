@@ -235,6 +235,7 @@
   }
   .navbar ul li{
     list-style: none;
+    display: flex;
   }
   .nav-center{
     transform: translate(-10px);
@@ -242,7 +243,8 @@
     font-size: 11px;
   }
   .navbar .navbar-right{
-    transform: translateY(-10px);
+    transform: translate(20px,-10px);
+    display: flex;
   }
 }
 .logo {
