@@ -26,13 +26,25 @@ function Timeline() {
             <p>{t('norm')}</p>
           </div>
         </div>
-
+        <div className="timeline-item left">
+          <div className="content">
+            <h3>{t('career1')}</h3>
+            <p>{t('career2')}</p>
+          </div>
+        </div>
+        <div className="timeline-item right">
+          <div className="content">
+            <h3>{t('backend')}</h3>
+            <p>{t('backend1')}</p>
+          </div>
+        </div>
         <div className="timeline-item left">
           <div className="content">
             <h3>{t('theend')}</h3>
             <p>{t('finish')}</p>
           </div>
         </div>
+
 
       </div>
     </section>
