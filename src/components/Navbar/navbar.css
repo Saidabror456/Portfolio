@@ -225,20 +225,24 @@
 /* Extra small <480px */
 @media(max-width:480px) {
   .mobile-menu { width: 100%; padding: 2rem 1rem; }
-  .mobile-nav .nav-link { font-size: 15px; }
+  .mobile-nav .nav-link { font-size: 10px; }
   .mobile-langs button { font-size: 13px; padding: 8px; }
   .navbar ul {
+    display: flex;
+  }
+  .navbar{
     display: flex;
   }
   .navbar ul li{
     list-style: none;
   }
   .nav-center{
-    transform: translate(-20px);
+    transform: translate(-10px);
     font-size: 13px;
+    font-size: 11px;
   }
   .navbar .navbar-right{
-    transform: translate(180px,-30px);
+    transform: translateY(-10px);
   }
 }
 .logo {
