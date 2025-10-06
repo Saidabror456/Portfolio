@@ -24,9 +24,6 @@ function Footer() {
           <a href="https://t.me/Said_Abror_00" target="_blank" rel="noreferrer">
             <i className="fab fa-telegram"></i>
           </a>
-          <a href="https://vk.com/keep_2204" target="_blank" rel="noreferrer">
-            <i className="fab fa-vk"></i>
-          </a>
         </div>
       </div>
     </footer>

@@ -12,6 +12,7 @@ function Hello(){
         <>
         <div className="hello">
             <h1>{t('hello1')}</h1>
+            <p>{t('click')}</p>
         </div>
         </>
     )
