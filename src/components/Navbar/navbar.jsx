@@ -1,23 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
-import Logo from "../Logo/logo";
-
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./navbar.css";
-import Skills from "../Skills/Skills";
-import Timeline from "../Timeline/Timeline";
-import About from "../About/about";
-import Contacts from "../Contacts/contacts";
-import Start from "../Start/start";
-import Projects from "../Projects/project";
 import Hello from "../Hello/hello";
+
 function Navbar() {
   const { t, i18n } = useTranslation();
   const [langOpen, setLangOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState("en");
+  const [activeLang, setActiveLang] = useState("en"); 
+
   const langRef = useRef(null);
   const mobileRef = useRef(null);
+  const location = useLocation(); 
+
+  useEffect(() => {
+    i18n.changeLanguage("en");
+  }, [i18n]);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -59,23 +58,25 @@ function Navbar() {
 
   return (
     <>
-
-      {/* Desktop Navbar */}
+      {/* Navbar */}
       <header className="navbar" role="navigation" aria-label="Main Navigation">
-        <div className="navbar-left">
+        <div className="navbar-left"></div>
+
+        <div className="logo">
+          <h1 className="logo">
+            Saidabror<span>'s</span> Portfolio
+          </h1>
         </div>
 
-<div className="logo">
-<h1 class="logo">Saidabror<span>'s</span> Portfolio</h1>
-
-</div>
         <nav className="nav-center">
           <ul className="nav-links">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                 >
                   {link.label}
                 </NavLink>
@@ -96,6 +97,7 @@ function Navbar() {
                 ▾
               </span>
             </button>
+
             {langOpen && (
               <ul className="dropdown-list" role="menu" aria-label="Languages">
                 <li><button onClick={() => changeLang("ru")}>Русский</button></li>
@@ -106,7 +108,7 @@ function Navbar() {
           </div>
         </div>
       </header>
-      <Hello/>
+      {(location.pathname === "/") && <Hello />}
     </>
   );
 }

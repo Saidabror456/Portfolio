@@ -1,6 +1,7 @@
 import './start.css';
 import hello from '../../assets/hello.png'
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 function Start() {
    const { t, i18n } = useTranslation();
   
@@ -20,7 +21,9 @@ function Start() {
            {t('inf')}
         </p>
         <div className="buttons">
-          <a href="#projects" className="btn primary">{t('but1')}</a>
+          <NavLink to="/projects" className="btn primary">
+            {t("but1")}
+          </NavLink>
           <a href="https://t.me/Said_Abror_00" className="btn secondary">{t('but2')}</a>
         </div>
       </div>

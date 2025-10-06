@@ -227,7 +227,6 @@
   .mobile-menu { width: 100%; padding: 2rem 1rem; }
   .mobile-nav .nav-link { font-size: 15px; }
   .mobile-langs button { font-size: 13px; padding: 8px; }
-    .brand-mobile{}
   .navbar ul {
     display: flex;
   }
@@ -235,8 +234,11 @@
     list-style: none;
   }
   .nav-center{
-    transform: translate(-40px);
+    transform: translate(-20px);
     font-size: 13px;
+  }
+  .navbar .navbar-right{
+    transform: translate(180px,-30px);
   }
 }
 .logo {
