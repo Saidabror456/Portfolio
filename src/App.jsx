@@ -8,6 +8,7 @@ import Skills from "./components/Skills/Skills";
 import Timeline from "./components/Timeline/Timeline";
 import Footer from "./components/Footer/footer";
 import './App.css'
+import Certificate from "./components/Certificate/certificate";
 import Hello from "./components/Hello/hello";
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/timeline" element={<Timeline />} />
+        <Route path="/certificate" element={<Certificate />} />
       </Routes>
       <Footer />
     </>

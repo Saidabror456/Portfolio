@@ -26,9 +26,9 @@
             "send":"Send",
             "way":"My way",
             "june":"2024 beginning of June",
-            "january":"January 2024",
+            "january":"May 15, 2025",
             "theend":"October 1, 2025",
-            "career1":"Next 6 months",
+            "career1":"Next 5 months",
             "career2":"I spent 6 months practicing and creating various websites.",
             "start":"Started learning web development: HTML, CSS, JavaScript.",
             "norm":"Studied HTML, CSS, JavaScriptReact and created my first web projects.",
@@ -36,5 +36,7 @@
             "hello1":"Hello, this is my portfolio. Here you can see information about me and my projects ",
             "click":" Click on the captions above to see more information about me.",
             "backend":"End of July, 2025",
-            "backend1":"Started Learning Node.js, Back-End"
+            "backend1":"Started Learning Node.js, Back-End",
+            "certificate":"Frontend Development Certificate",
+            "certificate2":"FullStack Development Certificate"
             }

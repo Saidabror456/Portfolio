@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import './about.css';
 import Skills from '../Skills/Skills';
+import Certificate from '../Certificate/certificate';
 function About() {
    const { t, i18n } = useTranslation();
   
@@ -41,6 +42,7 @@ function About() {
       </div>
     </section>
     <Skills/>
+    <Certificate/>
     </>
   );
 }

@@ -26,13 +26,15 @@
             "send":"Yuborish",
             "way":"Mening yo'lim",
             "june":" 2024 yil iyun oyining boshi",
-            "january":"2024 yil yanvar",
+            "january":"2025 yil, 25 May",
             "theend":"2025 yil 1 oktyabr",
             "start":"Web-ishlab chiqishni o'rganish boshlandi: HTML, CSS, JavaScript.",
             "norm":"HTML, CSS, JavaScriptReact ni o'rgandim va birinchi web-loyihalarimni yaratdim.",
             "finish":"Men Back-End dasturini tugatdim va loyihalar yaratishni va ish izlashni boshladim.",
             "hello1":"Salom, bu mening portfelim",
             "click":" Bu yerda siz men haqimda va loyihalarim maʼlumotlarni koʻrishingiz mumkin.",
-            "career1":"Keyingi 6 oy",
-            "career2":"Men 6 oy mashq qildim va turli web-saytlar yaratdim."
+            "career1":"Keyingi 5 oy",
+            "career2":"Men 6 oy mashq qildim va turli web-saytlar yaratdim.",
+            "certificate":"Frontend Development Sertifikati",
+            "certificate2":"FullStack Development Sertifikati"
             }
