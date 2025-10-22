@@ -3,8 +3,7 @@ import "./skill.css";
 import Timeline from "../Timeline/Timeline";
 function Skills() {
      const { t, i18n } = useTranslation();
-  
-    const changeLang = (lng) => {
+    const changeLang = (lng) => {  
       i18n.changeLanguage(lng);
       setActiveLang(lng);
       setOpen(false);
